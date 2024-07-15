@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artemkliuiev <artemkliuiev@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 22:03:57 by akliuiev          #+#    #+#             */
-/*   Updated: 2024/07/15 23:32:11 by artemkliuie      ###   ########.fr       */
+/*   Created: 2024/07/10 19:02:18 by artemkliuie       #+#    #+#             */
+/*   Updated: 2024/07/15 23:46:17 by artemkliuie      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	char	*d;
-	char	*s;
-	size_t	i;
+# include "libft/libft.h"
+# include <stdarg.h>
 
-	i = n;
-	d = (char *)dest;
-	s = (char *)src;
-	if (dest == NULL && src == NULL)
-		return (dest);
-	if (dest == src)
-		return (dest);
-	if (dest > src)
-		while (i--)
-			d[i] = s[i];
-	else
-		while (i--)
-			*d++ = *s++;
-	return (dest);
-}
+int	ft_printf(const char *s, ...);
+int	printchar(char c);
+int	printstr(char *s);
+int	printnum(int num);
+int	printunum(unsigned int n);
+int	printhex(unsigned long num, const char format);
+
+#endif
